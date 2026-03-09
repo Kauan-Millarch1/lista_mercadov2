@@ -82,7 +82,7 @@ export function DietBrowser({ onAddToList, onAddCollectionToList }: DietBrowserP
         </div>
       </div>
 
-      <div className="mt-6 grid gap-5 lg:grid-cols-[15rem_minmax(0,1fr)] lg:items-start">
+      <div className="mt-6 grid gap-5 lg:grid-cols-[13rem_minmax(0,1fr)] xl:grid-cols-[14rem_minmax(0,1fr)] lg:items-start">
         <DietRail
           activeDietSlug={activeDietSlug}
           diets={dietCategories}

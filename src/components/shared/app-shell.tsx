@@ -145,7 +145,7 @@ export function AppShell() {
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(120,119,198,0.16),_transparent_30%),linear-gradient(180deg,_rgba(14,17,24,1)_0%,_rgba(8,10,16,1)_100%)] text-foreground">
-      <div className="mx-auto flex min-h-screen w-full max-w-[96rem] flex-col px-5 py-6 sm:px-8 lg:px-10">
+      <div className="mx-auto flex min-h-screen w-full max-w-[110rem] flex-col px-5 py-6 sm:px-8 lg:px-10">
         <header className="flex items-center justify-between border-b border-white/10 pb-5">
           <div>
             <p className="text-xs uppercase tracking-[0.28em] text-emerald-300/80">
@@ -180,7 +180,7 @@ export function AppShell() {
           <>
             <section
               id="visao-geral"
-              className="grid flex-1 gap-6 py-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start lg:py-12 xl:grid-cols-[minmax(0,1fr)_23rem]"
+              className="grid flex-1 gap-6 py-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start lg:py-12 xl:grid-cols-[minmax(0,1fr)_21rem]"
             >
               <div className="space-y-6">
                 <div className="inline-flex items-center rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-sm text-emerald-200">

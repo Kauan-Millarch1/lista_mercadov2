@@ -44,7 +44,7 @@ export function CatalogBrowser({ onAddToList }: CatalogBrowserProps) {
         </div>
       </div>
 
-      <div className="mt-6 grid gap-5 lg:grid-cols-[13rem_minmax(0,1fr)] xl:grid-cols-[14rem_minmax(0,1fr)] lg:items-start">
+      <div className="mt-6 grid gap-5 lg:grid-cols-[11.5rem_minmax(0,1fr)] xl:grid-cols-[12rem_minmax(0,1fr)] lg:items-start">
         <CategoryRail
           activeCategorySlug={activeCategorySlug}
           categories={categories}
@@ -106,7 +106,7 @@ export function CatalogBrowser({ onAddToList }: CatalogBrowserProps) {
 
           <ul
             aria-label={`Produtos de ${activeCategory?.name ?? "categoria ativa"}`}
-            className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(16.5rem,1fr))]"
+            className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(14.5rem,1fr))]"
           >
             {visibleProducts.map((product) => (
               <li key={product.id} className="min-w-0">

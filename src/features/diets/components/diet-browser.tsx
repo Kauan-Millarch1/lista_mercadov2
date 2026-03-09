@@ -82,7 +82,7 @@ export function DietBrowser({ onAddToList, onAddCollectionToList }: DietBrowserP
         </div>
       </div>
 
-      <div className="mt-6 grid gap-5 lg:grid-cols-[13rem_minmax(0,1fr)] xl:grid-cols-[14rem_minmax(0,1fr)] lg:items-start">
+      <div className="mt-6 grid gap-5 lg:grid-cols-[11.5rem_minmax(0,1fr)] xl:grid-cols-[12rem_minmax(0,1fr)] lg:items-start">
         <DietRail
           activeDietSlug={activeDietSlug}
           diets={dietCategories}
@@ -222,7 +222,7 @@ export function DietBrowser({ onAddToList, onAddCollectionToList }: DietBrowserP
 
           <ul
             aria-label={`Sugestoes da dieta ${activeDiet?.name ?? "ativa"}`}
-            className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(16.5rem,1fr))]"
+            className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(14.5rem,1fr))]"
           >
             {visibleSuggestions.map((product) => (
               <li key={product.slug} className="min-w-0">

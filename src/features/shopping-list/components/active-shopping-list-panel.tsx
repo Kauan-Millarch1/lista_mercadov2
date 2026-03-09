@@ -29,7 +29,7 @@ export function ActiveShoppingListPanel({
       aria-label={compact ? "Lista ativa no celular" : "Lista ativa"}
       className="rounded-[1.75rem] border border-white/10 bg-slate-950/80 p-5 shadow-2xl shadow-black/30 backdrop-blur sm:p-6"
     >
-      <div className="flex items-start justify-between gap-4">
+      <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
         <div className="space-y-2">
           <p className="text-xs uppercase tracking-[0.24em] text-emerald-300/75">
             Workspace da lista
@@ -41,8 +41,8 @@ export function ActiveShoppingListPanel({
               : "Use os atalhos da area principal para montar sua lista sem sair desta tela."}
           </p>
         </div>
-        <div className="text-right">
-          <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs text-emerald-100">
+        <div className="min-w-[9.5rem] text-left sm:text-right">
+          <span className="inline-flex min-h-8 items-center whitespace-nowrap rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs text-emerald-100 sm:ml-auto">
             {items.length === 0 ? "Pronta para comecar" : `${items.length} item(ns)`}
           </span>
           <p className="mt-3 text-xs uppercase tracking-[0.2em] text-zinc-500">

@@ -1,6 +1,6 @@
 # Story 1.1: Initialize the Web Foundation and Design System
 
-Status: ready-for-dev
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -19,26 +19,26 @@ so that I can start using the product in a stable and coherent environment.
 
 ## Tasks / Subtasks
 
-- [ ] Initialize the application scaffold with the official Next.js starter settings required by architecture. (AC: 1, 4)
-  - [ ] Create the app with Next.js using TypeScript, Tailwind CSS, ESLint, App Router, `src/` directory, and `@/*` import alias.
-  - [ ] Ensure the generated baseline includes the files needed for linting, type-safe development, and future route expansion.
-  - [ ] Confirm the scaffold runs independently without depending on later Epic 1 stories.
-- [ ] Establish the base source tree expected by the architecture. (AC: 1, 4)
-  - [ ] Create the initial top-level application structure under `src/` for `app/`, `features/`, `entities/`, `lib/`, `components/ui/`, `components/shared/`, and `providers/`.
-  - [ ] Add placeholder or starter-level module boundaries only where needed to keep the project compiling cleanly.
-  - [ ] Preserve the architecture naming and ownership rules so later stories can extend existing folders instead of restructuring them.
-- [ ] Install and configure the UI foundation. (AC: 2, 3)
-  - [ ] Initialize `shadcn/ui` against the Tailwind-based project scaffold.
-  - [ ] Add the initial design-token foundation for the premium dark direction using Tailwind theme variables and app-level global styles.
-  - [ ] Verify at least one core shadcn primitive is available and usable in the app shell.
-- [ ] Prepare the initial PT-BR-ready application shell. (AC: 3, 4)
-  - [ ] Set the base metadata, root layout, and starter navigation copy to PT-BR.
-  - [ ] Replace generic starter content with a coherent grocery-planning shell that matches the product direction without implying unfinished Epic 1 features are already implemented.
-  - [ ] Ensure the app shell renders correctly in Google Chrome on desktop and mobile viewport sizes.
-- [ ] Establish the baseline engineering guardrails for future stories. (AC: 4)
-  - [ ] Preserve ESLint and TypeScript checks as part of the initial developer baseline.
-  - [ ] Add any minimal utility or provider scaffolding needed to support the future architecture without prematurely implementing data, auth, or server-state features.
-  - [ ] Document any intentional deferrals in Dev Notes so future implementation does not mistake omitted infrastructure for accidental gaps.
+- [x] Initialize the application scaffold with the official Next.js starter settings required by architecture. (AC: 1, 4)
+  - [x] Create the app with Next.js using TypeScript, Tailwind CSS, ESLint, App Router, `src/` directory, and `@/*` import alias.
+  - [x] Ensure the generated baseline includes the files needed for linting, type-safe development, and future route expansion.
+  - [x] Confirm the scaffold runs independently without depending on later Epic 1 stories.
+- [x] Establish the base source tree expected by the architecture. (AC: 1, 4)
+  - [x] Create the initial top-level application structure under `src/` for `app/`, `features/`, `entities/`, `lib/`, `components/ui/`, `components/shared/`, and `providers/`.
+  - [x] Add placeholder or starter-level module boundaries only where needed to keep the project compiling cleanly.
+  - [x] Preserve the architecture naming and ownership rules so later stories can extend existing folders instead of restructuring them.
+- [x] Install and configure the UI foundation. (AC: 2, 3)
+  - [x] Initialize `shadcn/ui` against the Tailwind-based project scaffold.
+  - [x] Add the initial design-token foundation for the premium dark direction using Tailwind theme variables and app-level global styles.
+  - [x] Verify at least one core shadcn primitive is available and usable in the app shell.
+- [x] Prepare the initial PT-BR-ready application shell. (AC: 3, 4)
+  - [x] Set the base metadata, root layout, and starter navigation copy to PT-BR.
+  - [x] Replace generic starter content with a coherent grocery-planning shell that matches the product direction without implying unfinished Epic 1 features are already implemented.
+  - [x] Ensure the app shell renders correctly in Google Chrome on desktop and mobile viewport sizes.
+- [x] Establish the baseline engineering guardrails for future stories. (AC: 4)
+  - [x] Preserve ESLint and TypeScript checks as part of the initial developer baseline.
+  - [x] Add any minimal utility or provider scaffolding needed to support the future architecture without prematurely implementing data, auth, or server-state features.
+  - [x] Document any intentional deferrals in Dev Notes so future implementation does not mistake omitted infrastructure for accidental gaps.
 
 ## Dev Notes
 
@@ -183,10 +183,68 @@ so that I can start using the product in a stable and coherent environment.
 
 ### Agent Model Used
 
-{{agent_model_name_version}}
+GPT-5 Codex
 
 ### Debug Log References
 
+- `npx.cmd create-next-app@latest web-foundation-temp --ts --tailwind --eslint --app --src-dir --import-alias "@/*" --use-npm --yes`
+- `npx.cmd shadcn@latest init --defaults`
+- `npm.cmd test`
+- `npm.cmd run lint`
+- `npm.cmd run build`
+- `npm.cmd run build` (rerun outside sandbox to confirm the earlier `spawn EPERM` came from execution restrictions, not from application code)
+- `code-review` findings addressed for interactive navigation, CTA behavior, provider boundary, package cleanup, and story accuracy
+- `chrome.exe --headless=new ... --screenshot=... http://127.0.0.1:3000` for desktop and mobile viewport validation during review
+
 ### Completion Notes List
 
+- Initialized the repository with the official Next.js App Router starter and moved the generated scaffold into the project root while preserving BMAD planning artifacts.
+- Added the architecture-aligned `src/` structure with minimal placeholders for `features/` and `entities/`, plus a neutral `AppProviders` composition layer for future global providers.
+- Installed `shadcn/ui`, generated `components.json`, and verified the shared `Button` primitive is used by the initial app shell.
+- Replaced the generic starter page with a PT-BR grocery-planning shell that stays within story scope and does not imply unfinished list, catalog, persistence, auth, or onboarding flows already exist.
+- Established a premium dark token baseline in `src/app/globals.css` using local font stacks so the production build does not depend on remote font fetches.
+- Added a lightweight smoke test script for scaffold metadata, PT-BR shell copy, and required source-tree boundaries.
+- Validation completed with `npm.cmd test`, `npm.cmd run lint`, and `npm.cmd run build`.
+- The earlier `spawn EPERM` observed during `next build` was reproduced only inside the sandboxed execution environment; the same build completed successfully outside the sandbox, so the implementation baseline remains valid.
+- Code review fixes converted the header chips into real anchor navigation, made both primary CTAs perform in-page navigation, and removed the unnecessary client-only provider boundary from the app root.
+- The `shadcn` CLI package was removed from runtime dependencies after scaffold generation because it is not required by the shipped application.
+- Google Chrome headless validation was executed against the local dev server in desktop and mobile viewport sizes, closing the remaining viewport verification task for this story.
+- Intentional deferrals preserved for future stories: active shopping list behavior, catalog flows, budget logic, persistence, Prisma, Supabase, Zustand, TanStack Query, analytics, and advanced motion systems.
+- Responsive desktop/mobile layout was implemented with breakpoint-aware Tailwind structure and confirmed through Chrome headless screenshots during review.
+
 ### File List
+
+- .gitignore
+- components.json
+- eslint.config.mjs
+- next-env.d.ts
+- next.config.ts
+- package-lock.json
+- package.json
+- postcss.config.mjs
+- README.md
+- tsconfig.json
+- public/file.svg
+- public/globe.svg
+- public/next.svg
+- public/vercel.svg
+- public/window.svg
+- src/app/favicon.ico
+- src/app/globals.css
+- src/app/layout.tsx
+- src/app/page.tsx
+- src/components/shared/app-shell.tsx
+- src/components/ui/button.tsx
+- src/entities/.gitkeep
+- src/features/.gitkeep
+- src/lib/utils.ts
+- src/providers/app-providers.tsx
+- tests/foundation-smoke.test.mjs
+- web-foundation-temp/.next/types/cache-life.d.ts (deleted)
+- web-foundation-temp/.next/types/routes.d.ts (deleted)
+- web-foundation-temp/.next/types/validator.ts (deleted)
+
+### Change Log
+
+- 2026-03-09: Created the initial Next.js + Tailwind + TypeScript scaffold, installed shadcn/ui, added the PT-BR shell, and validated the baseline with smoke checks, lint, and production build.
+- 2026-03-09: Addressed code review findings by making navigation and CTAs actionable, removing the inert client provider boundary, removing the unused shadcn CLI dependency, correcting story completion claims, and completing Chrome desktop/mobile validation.

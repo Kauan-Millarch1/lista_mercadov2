@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Lista de mercado - UX Design Directions</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: #0d0d0f;
+      --panel-2: #141417;
+      --border: #222228;
+      --text: #f3f4f6;
+      --muted: #a1a1aa;
+      --green: #3f7a57;
+      --green-2: #5ca776;
+      --price: #d6d6d9;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(63, 122, 87, 0.12), transparent 28%),
+        linear-gradient(180deg, #040404 0%, #09090b 100%);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 40px 28px 80px;
+    }
+
+    .hero {
+      margin-bottom: 28px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: rgba(13, 13, 15, 0.78);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 38px;
+      font-weight: 650;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 900px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 24px;
+    }
+
+    .direction {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: rgba(12, 12, 14, 0.88);
+      box-shadow: var(--shadow);
+    }
+
+    .direction h2 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .direction p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .mockup {
+      min-height: 520px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+      background: linear-gradient(180deg, #0a0a0c 0%, #111114 100%);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .brand {
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.3fr 0.85fr;
+      min-height: 470px;
+    }
+
+    .main {
+      padding: 22px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .side {
+      padding: 22px;
+      background: rgba(255,255,255,0.015);
+    }
+
+    .chips, .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .chip, .tab {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .chip.active, .tab.active {
+      color: #d9f2e2;
+      border-color: rgba(92,167,118,0.45);
+      background: rgba(63,122,87,0.24);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      padding: 16px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--green-2);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .card h3, .side h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p, .meta, .line {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .price {
+      color: var(--price);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .btn {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(92,167,118,0.3);
+      background: rgba(63,122,87,0.18);
+      color: #e6f6ec;
+      font-size: 12px;
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 13px;
+    }
+
+    .total {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .total strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 26px;
+      letter-spacing: -0.04em;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .dir-2 .mockup { background: linear-gradient(180deg, #090b09 0%, #0f1210 100%); }
+    .dir-2 .side { background: rgba(63,122,87,0.08); }
+    .dir-3 .cards { grid-template-columns: 1fr; }
+    .dir-3 .main { padding-bottom: 10px; }
+    .dir-4 .layout { grid-template-columns: 1fr; }
+    .dir-4 .main { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .dir-5 .card { background: rgba(255,255,255,0.02); }
+    .dir-5 .mockup { background: linear-gradient(180deg, #060606 0%, #0b0d0c 100%); }
+    .dir-6 .topbar { background: rgba(255,255,255,0.02); }
+    .dir-6 .cards { gap: 18px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>UX Design Directions</h1>
+      <p>Exploracao visual para <strong>Projeto Lista de mercado</strong>. Todas as direcoes mantem base all black, acento verde sofisticado, painel lateral discreto e foco em lista, feed e dieta como um fluxo unico de planejamento.</p>
+    </section>
+
+    <section class="grid">
+      <article class="direction dir-1">
+        <h2>Direction 1: Premium Editorial</h2>
+        <p>Mais proxima de Apple. Muito respiro, cards elegantes e hierarquia limpa.</p>
+        <div class="mockup">
+          <div class="topbar"><span class="brand">Lista de mercado</span><span>Home / Feed / Dieta</span></div>
+          <div class="layout">
+            <div class="main">
+              <div class="chips"><span class="chip active">Hortifruti</span><span class="chip">Proteinas</span><span class="chip">Laticinios</span></div>
+              <div class="cards">
+                <div class="card"><span class="eyebrow">Produto em alta</span><h3>Abacate Hass</h3><p>Fruta cremosa, boa para cafe da manha e dietas de saciedade.</p><div class="row"><span class="price">R$ 12,90</span><button class="btn">Adicionar</button></div></div>
+                <div class="card"><span class="eyebrow">Escolha da dieta</span><h3>Iogurte Natural</h3><p>Opcao leve para listas de proteina e cafe da manha rapido.</p><div class="row"><span class="price">R$ 8,50</span><button class="btn">Adicionar</button></div></div>
+              </div>
+            </div>
+            <aside class="side">
+              <h3>Lista ativa</h3>
+              <div class="list-item"><span>Banana prata</span><span>R$ 9,80</span></div>
+              <div class="list-item"><span>Leite integral</span><span>R$ 6,40</span></div>
+              <div class="total"><span class="meta">Total estimado</span><strong>R$ 59,30</strong></div>
+            </aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="direction dir-2">
+        <h2>Direction 2: Green Pulse</h2>
+        <p>Mesmo premium, mas com verde mais presente para reforcar descoberta e frescor.</p>
+        <div class="mockup">
+          <div class="topbar"><span class="brand">Lista de mercado</span><span>Descoberta guiada</span></div>
+          <div class="layout">
+            <div class="main">
+              <div class="tabs"><span class="tab active">Mais comprados</span><span class="tab">Dieta keto</span><span class="tab">Sugestoes recentes</span></div>
+              <div class="cards">
+                <div class="card"><h3>Castanha de caju</h3><p>Snack premium para energia e praticidade durante a semana.</p><div class="row"><span class="price">R$ 18,90</span><button class="btn">Adicionar</button></div></div>
+                <div class="card"><h3>Peito de frango</h3><p>Base proteica para dieta e planejamento de refeicoes.</p><div class="row"><span class="price">R$ 21,50</span><button class="btn">Adicionar</button></div></div>
+              </div>
+            </div>
+            <aside class="side">
+              <h3>Resumo da compra</h3>
+              <p class="meta">O painel acompanha tudo sem roubar o foco.</p>
+              <div class="total"><span class="meta">Previsto para hoje</span><strong>R$ 84,10</strong></div>
+            </aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="direction dir-3">
+        <h2>Direction 3: Monolithic Cards</h2>
+        <p>Cards mais largos, leitura mais editorial e forte sensacao de produto premium.</p>
+        <div class="mockup">
+          <div class="topbar"><span class="brand">Lista de mercado</span><span>Curadoria visual</span></div>
+          <div class="layout">
+            <div class="main">
+              <div class="card"><span class="eyebrow">Dieta pronta</span><h3>Kit cafe da manha proteico</h3><p>Inclui ovos, iogurte, banana e aveia. Lista pronta para quem quer praticidade e previsao de custo antes de sair.</p><div class="row"><span class="price">Media R$ 36,40</span><button class="btn">Adicionar tudo</button></div></div>
+              <div style="height:14px"></div>
+              <div class="card"><span class="eyebrow">Sugestao recente</span><h3>Recomprar itens da ultima semana</h3><p>Uma direcao forte para retorno e continuidade do uso.</p><div class="row"><span class="price">8 itens</span><button class="btn">Repetir lista</button></div></div>
+            </div>
+            <aside class="side">
+              <h3>Total ao lado</h3>
+              <div class="line">Lista sempre visivel e discreta.</div>
+              <div class="total"><span class="meta">Com dieta selecionada</span><strong>R$ 112,90</strong></div>
+            </aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="direction dir-4">
+        <h2>Direction 4: Wide Shelf</h2>
+        <p>Aparencia de vitrine ampla, ideal para explorar mais produtos em uma pagina.</p>
+        <div class="mockup">
+          <div class="topbar"><span class="brand">Lista de mercado</span><span>Catalogo expandido</span></div>
+          <div class="layout">
+            <div class="main">
+              <div class="chips"><span class="chip active">Feed</span><span class="chip">Categorias</span><span class="chip">Dietas</span></div>
+              <div class="cards">
+                <div class="card"><h3>Pao integral</h3><p>Descricao curta e clara.</p><div class="row"><span class="price">R$ 10,20</span><button class="btn">Adicionar</button></div></div>
+                <div class="card"><h3>Queijo minas</h3><p>Produto recorrente em cafe da manha.</p><div class="row"><span class="price">R$ 14,70</span><button class="btn">Adicionar</button></div></div>
+                <div class="card"><h3>Tomate cereja</h3><p>Opcao premium para saladas e lanches.</p><div class="row"><span class="price">R$ 7,90</span><button class="btn">Adicionar</button></div></div>
+                <div class="card"><h3>Agua com gas</h3><p>Recomendacao de recompra frequente.</p><div class="row"><span class="price">R$ 4,80</span><button class="btn">Adicionar</button></div></div>
+              </div>
+            </div>
+            <aside class="side">
+              <h3>Lista fixa</h3>
+              <div class="list-item"><span>3 produtos novos</span><span>+R$ 22,60</span></div>
+              <div class="total"><span class="meta">Total estimado</span><strong>R$ 96,70</strong></div>
+            </aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="direction dir-5">
+        <h2>Direction 5: Precision Console</h2>
+        <p>Mais proxima de Linear. Precisa, tecnica e muito limpa, mas ainda premium.</p>
+        <div class="mockup">
+          <div class="topbar"><span class="brand">Lista de mercado</span><span>Status: planejando em casa</span></div>
+          <div class="layout">
+            <div class="main">
+              <div class="tabs"><span class="tab active">Todos</span><span class="tab">Recomprar</span><span class="tab">Dieta</span></div>
+              <div class="cards">
+                <div class="card"><h3>File de salmao</h3><p>Proteina premium para dieta balanceada.</p><div class="row"><span class="price">R$ 39,90</span><button class="btn">+ Lista</button></div></div>
+                <div class="card"><h3>Mix de folhas</h3><p>Base leve para refeicoes rapidas.</p><div class="row"><span class="price">R$ 9,40</span><button class="btn">+ Lista</button></div></div>
+              </div>
+            </div>
+            <aside class="side">
+              <h3>Painel lateral</h3>
+              <div class="line">Fixo, discreto e sempre visivel.</div>
+              <div class="total"><span class="meta">Planejamento atual</span><strong>R$ 143,20</strong></div>
+            </aside>
+          </div>
+        </div>
+      </article>
+
+      <article class="direction dir-6">
+        <h2>Direction 6: Hybrid Concierge</h2>
+        <p>Mistura feed, dieta e recompra com clima de assistente premium de compras.</p>
+        <div class="mockup">
+          <div class="topbar"><span class="brand">Lista de mercado</span><span>Sugestoes inteligentes</span></div>
+          <div class="layout">
+            <div class="main">
+              <div class="card"><span class="eyebrow">Para voce hoje</span><h3>Baseado na ultima lista</h3><p>Arroz integral, banana, ovos e cafe aparecem como atalho principal para recomecar o planejamento sem partir do zero.</p><div class="row"><span class="price">Media R$ 42,80</span><button class="btn">Adicionar selecao</button></div></div>
+              <div style="height:18px"></div>
+              <div class="cards">
+                <div class="card"><h3>Dieta low carb</h3><p>Produtos essenciais para a semana.</p><div class="row"><span class="price">6 itens</span><button class="btn">Ver dieta</button></div></div>
+                <div class="card"><h3>Mais comprados</h3><p>Descubra itens frequentes e adicione rapido.</p><div class="row"><span class="price">Feed</span><button class="btn">Explorar</button></div></div>
+              </div>
+            </div>
+            <aside class="side">
+              <h3>Resumo sempre vivo</h3>
+              <div class="list-item"><span>Ovos caipira</span><span>R$ 15,90</span></div>
+              <div class="list-item"><span>Cafe em po</span><span>R$ 17,40</span></div>
+              <div class="total"><span class="meta">Seu total</span><strong>R$ 78,50</strong></div>
+            </aside>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <p class="footer-note">Arquivo gerado para exploracao visual. Use estas direcoes como base para escolher uma linha principal ou combinar elementos entre elas.</p>
+  </div>
+</body>
+</html>

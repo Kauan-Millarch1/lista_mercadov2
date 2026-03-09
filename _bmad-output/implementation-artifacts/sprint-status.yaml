@@ -1,0 +1,73 @@
+# generated: 2026-03-09
+# project: Projeto Lista de mercado
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: {project-root}/_bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog -> in-progress: Automatically when first story is created (via create-story)
+#   - in-progress -> done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-03-09
+project: Projeto Lista de mercado
+project_key: NOKEY
+tracking_system: file-system
+story_location: C:/Users/Kauan/Downloads/Projetos/Projeto Lista de mercado/_bmad-output/implementation-artifacts
+
+development_status:
+  epic-1: in-progress
+  1-1-initialize-the-web-foundation-and-design-system: in-progress
+  1-2-create-the-active-shopping-list-workspace: backlog
+  1-3-add-list-item-management-and-quantity-updates: backlog
+  1-4-implement-budget-calculation-and-real-time-feedback: backlog
+  1-5-persist-the-active-list-locally-across-sessions: backlog
+  1-6-finalize-pt-br-labels-and-responsive-core-flows: backlog
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-create-the-product-catalog-data-model-and-seed-mvp-categories: backlog
+  2-2-build-category-browsing-and-navigation: backlog
+  2-3-render-product-cards-with-pt-br-content-and-average-prices: backlog
+  2-4-connect-catalog-add-to-list-actions-to-the-active-shopping-flow: backlog
+  2-5-refine-responsive-catalog-scanning-and-category-usability: backlog
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-add-manual-item-entry-to-the-shopping-flow: backlog
+  3-2-support-optional-pricing-for-manual-items: backlog
+  3-3-distinguish-manual-items-and-communicate-partial-totals: backlog
+  3-4-refine-manual-entry-ux-across-desktop-and-mobile: backlog
+  epic-3-retrospective: optional
+
+  epic-4: backlog
+  4-1-create-diet-categories-and-suggested-product-collections: backlog
+  4-2-build-the-diet-browsing-experience: backlog
+  4-3-add-individual-diet-products-to-the-active-list: backlog
+  4-4-preview-and-bulk-add-a-full-diet-list: backlog
+  4-5-integrate-smart-suggestion-blocks-into-the-planning-experience: backlog
+  epic-4-retrospective: optional
